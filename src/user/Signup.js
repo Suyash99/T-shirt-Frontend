@@ -10,20 +10,20 @@ const Signup = () => {
     email: "",
     password: "",
     error: "",
-    success: false
+    success: false,
   });
 
-  const { name, lastname, email, password, error, success, } = values;
+  const { name, lastname, email, password, error, success } = values;
 
-  const handleChange = (name) => event => {
+  const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
-    signup({ name, lastname,email, password })
-      .then(data => {
+    signup({ name, lastname, email, password })
+      .then((data) => {
         if (data.error) {
           setValues({ ...values, error: data.error, success: false });
         } else {
@@ -34,7 +34,7 @@ const Signup = () => {
             email: "",
             password: "",
             error: "",
-            success: true
+            success: true,
           });
         }
       })
@@ -84,9 +84,9 @@ const Signup = () => {
               />
             </div>
             <div className="d-grid gap-2 col-6 mx-auto">
-            <button onClick={onSubmit} className="btn btn-success">
-              Submit
-            </button>
+              <button onClick={onSubmit} className="btn btn-success">
+                Submit
+              </button>
             </div>
           </form>
         </div>
