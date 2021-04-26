@@ -14,8 +14,7 @@ const Signin = () => {
   });
 
   const { email, password, error, loading, didRedirect } = values;
-  let { user } = isAuthenticated();
-
+  const { user } = isAuthenticated();
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
@@ -44,19 +43,13 @@ const Signin = () => {
   const performRedirect = () => {
     if (didRedirect) {
       if (user && user.role === 1) {
-        return <p>redirecting to admin</p>;
-      } else {
-        return <p>redirecting to home</p>;
-      }
-    }
-  };
-  const redirect = () => {
-    if (isAuthenticated()) {
-      if (user && user.role === 1) {
         return <Redirect to="/admin/dashboard" />;
       } else {
-        return <Redirect to="/" />;
+        return <Redirect to="/user/dashboard" />;
       }
+    }
+    if (isAuthenticated()) {
+      return <Redirect to="/" />;
     }
   };
 
@@ -125,8 +118,6 @@ const Signin = () => {
       {errorMessage()}
       {signInForm()}
       {performRedirect()}
-      {redirect()}
-      <p className="text-white text-center">{JSON.stringify(values)}</p>
     </Base>
   );
 };
