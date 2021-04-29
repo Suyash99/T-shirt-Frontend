@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const UserDashBoard = () => {
   const {
-    user: { name, email },
+    user: { name, email, lastname },
   } = isAuthenticated();
 
   const userLeftSide = () => {
@@ -37,6 +37,9 @@ const UserDashBoard = () => {
             <span className="badge text-success mr-2">Name: </span> {name}
           </li>
           <li className="list-group-item">
+            <span className="badge text-success mr-2">Last Name: </span> {lastname}
+          </li>
+          <li className="list-group-item">
             <span className="badge text-success mr-2">Email: </span> {email}
           </li>
           <li className="list-group-item">
@@ -49,8 +52,8 @@ const UserDashBoard = () => {
 
   return (
     <Base
-      title="Welcome to User Area"
-      description="Manage your orders here!"
+      title="Welcome to your dashboard"
+      description="Manage your orders and update your info here!"
       className="container bg-success p-4"
     >
       <div className="row">

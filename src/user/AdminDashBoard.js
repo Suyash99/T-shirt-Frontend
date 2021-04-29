@@ -5,7 +5,7 @@ import Base from "../core/Base";
 
 const AdminDashBoard = () => {
   const {
-    user: { name, email, role },
+    user: { name, email, role, lastname },
   } = isAuthenticated();
 
   const adminLeftSide = () => {
@@ -19,18 +19,23 @@ const AdminDashBoard = () => {
             </Link>
           </li>
           <li className="list-group-item">
+            <Link to="/admin/categories" className="nav-link text-success">
+              Manage Categories
+            </Link>
+          </li>
+          <li className="list-group-item">
             <Link to="/admin/create/product" className="nav-link text-success">
               Create Products
             </Link>
           </li>
           <li className="list-group-item">
-            <Link to="/admin/orders" className="nav-link text-success">
-              Manage Orders
+            <Link to="/admin/products" className="nav-link text-success">
+              Manage Products
             </Link>
           </li>
           <li className="list-group-item">
-            <Link to="/admin/products" className="nav-link text-success">
-              Manage Products
+            <Link to="/admin/orders" className="nav-link text-success">
+              Manage Orders
             </Link>
           </li>
         </ul>
@@ -47,6 +52,9 @@ const AdminDashBoard = () => {
             <span className="badge text-success mr-2">Name: </span> {name}
           </li>
           <li className="list-group-item">
+            <span className="badge text-success mr-2">Last Name: </span> {lastname}
+          </li>
+          <li className="list-group-item">
             <span className="badge text-success mr-2">Email: </span> {email}
           </li>
           <li className="list-group-item">
@@ -60,7 +68,7 @@ const AdminDashBoard = () => {
   return (
     <Base
       title="Welcome to Admin Area"
-      description="Manage all of your products here!"
+      description="Manage all the products here!"
       className="container bg-success p-4"
     >
       <div className="row">

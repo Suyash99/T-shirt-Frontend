@@ -82,6 +82,7 @@ const UpdateUser = () => {
   const performRedirect = () => {
     setTimeout(() => {
       if (didRedirect) {
+        console.log(didRedirect);
         if (user && user.role === 1) {
           return <Redirect to="/admin/dashboard" />;
         } else {

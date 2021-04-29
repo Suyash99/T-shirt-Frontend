@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { isAuthenticated } from "../auth/helper";
 import Base from "../core/Base";
-import { deleteProduct, getProducts } from "../admin/helper/adminapicall";
+import { delCategory, getCategories } from "../admin/helper/adminapicall";
+import { isAuthenticated } from "../auth/helper";
 
-export const ManageProducts = () => {
-  const [products, setProducts] = useState([]);
+export const ManageCategories = () => {
+  const [categories, setCategories] = useState([]);
 
   const { user, token } = isAuthenticated();
 
   const preload = () => {
-    getProducts().then((data) => {
+    getCategories().then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        setProducts(data);
+        setCategories(data);
       }
     });
   };
 
-  useEffect(() => {
-    preload();
-  }, []);
+  useEffect(() => preload(), []);
 
-  const delProduct = (productId) => {
-    deleteProduct(productId, user._id, token).then((data) => {
+  const deleteCategory = (categoryId) => {
+    delCategory(categoryId, user._id, token).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
@@ -34,8 +32,8 @@ export const ManageProducts = () => {
   };
 
   return (
-    <Base title="Welcome admin" description="Manage products here">
-      <h2 className="mb-4">All products:</h2>
+    <Base title="Welcome admin" description="Manage categories here">
+      <h2 className="mb-4">All Categories:</h2>
       <Link className="btn btn-success rounded" to={`/admin/dashboard`}>
         <span className="/admin">Admin Home</span>
       </Link>
@@ -43,16 +41,16 @@ export const ManageProducts = () => {
         <div className="col-12">
           <h2 className="text-center text-white my-3">Total 3 products</h2>
 
-          {products.map((product, index) => {
+          {categories.map((categories, index) => {
             return (
               <div key={index} className="row text-center mb-2 ">
                 <div className="col-4">
-                  <h3 className="text-dark text-left">{product.name}</h3>
+                  <h3 className="text-dark text-left">{categories.name}</h3>
                 </div>
                 <div className="col-4">
                   <Link
                     className="btn btn-success rounded"
-                    to={`/admin/product/update/${product._id}`}
+                    to={`/admin/category/update/categoryId`}
                   >
                     <span className="">Update</span>
                   </Link>
@@ -60,7 +58,7 @@ export const ManageProducts = () => {
                 <div className="col-4">
                   <button
                     onClick={() => {
-                      delProduct(product._id);
+                      deleteCategory(categories._id);
                     }}
                     className="btn btn-danger rounded"
                   >

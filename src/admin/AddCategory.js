@@ -12,7 +12,7 @@ const AddCategory = () => {
   const { user, token } = isAuthenticated();
 
   const goBack = () => (
-    <div className="mt-5">
+    <div className="col-md-8 offset-md-2 text-center">
       <Link
         className="btn btn-sm btn-success rounded mb-3"
         to="/admin/dashboard"
