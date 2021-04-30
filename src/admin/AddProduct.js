@@ -79,6 +79,7 @@ export const AddProduct = () => {
     setValues({ ...values, [name]: value });
   };
 
+  //Success Message not running
   const successMessage = () => {
     return (
       <div
@@ -178,7 +179,7 @@ export const AddProduct = () => {
       description="Product creation section"
       className="container bg-success p-4"
     >
-      <div className="row-md-4 text-left bg-white px-5 py-2">
+      <div className="row-md-4 text-left font-dark bg-white px-5 py-2">
         {successMessage()}
         {warningMessage()}
         {createProductForm()}
