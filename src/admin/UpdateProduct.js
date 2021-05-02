@@ -24,6 +24,7 @@ export const UpdateProduct = () => {
     createdProduct: "",
     getaRedirect: false,
     formData: "",
+    success: false
   });
 
   const {
@@ -38,6 +39,7 @@ export const UpdateProduct = () => {
     createdProduct,
     getaRedirect,
     formData,
+    success
   } = values;
 
   const preload = (productId) => {
@@ -93,6 +95,7 @@ export const UpdateProduct = () => {
             stock: "",
             loading: false,
             createdProduct: data.name,
+            success: true,
           });
         }
       })
@@ -106,14 +109,13 @@ export const UpdateProduct = () => {
   };
 
   const successMessage = () => {
-    return (
-      <div
-        className="alert alert-success mt-3"
-        style={{ display: createdProduct ? "" : "none" }}
-      >
-        <h4>{createdProduct} updated successfully!</h4>
-      </div>
-    );
+    if (success) {
+      return (
+        <div className="alert alert-success mt-3">
+          <h4>Product updated successfully!</h4>
+        </div>
+      );
+    }
   };
 
   const warningMessage = () => {

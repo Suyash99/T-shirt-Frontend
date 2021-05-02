@@ -43,6 +43,22 @@ export const delCategory = (categoryId, userId, token) => {
     .catch((err) => console.log(err));
 };
 
+//Update Category
+export const updateCate = (categoryId, userId, token, category) => {
+  return fetch(`${API}/category/${categoryId}/${userId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: category,
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
 //Product Calls
 //Create a product
 export const createProduct = (userId, token, product) => {
