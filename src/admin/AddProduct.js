@@ -20,6 +20,7 @@ export const AddProduct = () => {
     createdProduct: "",
     getaRedirect: false,
     formData: "",
+    success: false,
   });
 
   const {
@@ -34,6 +35,7 @@ export const AddProduct = () => {
     createdProduct,
     getaRedirect,
     formData,
+    success
   } = values;
 
   const preload = () => {
@@ -67,6 +69,7 @@ export const AddProduct = () => {
             stock: "",
             loading: false,
             createdProduct: data.name,
+            success: true,
           });
         }
       })
@@ -79,16 +82,14 @@ export const AddProduct = () => {
     setValues({ ...values, [name]: value });
   };
 
-  //Success Message not running
   const successMessage = () => {
-    return (
-      <div
-        className="alert alert-success mt-3"
-        style={{ display: createdProduct ? "" : "none" }}
-      >
-        <h4>{createdProduct} created successfully!</h4>
-      </div>
-    );
+    if (success) {
+      return (
+        <div className="alert alert-success mt-3">
+          <h4>Product created successfully!</h4>
+        </div>
+      );
+    }
   };
 
   const warningMessage = () => {
