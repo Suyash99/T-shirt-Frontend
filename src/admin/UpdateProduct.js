@@ -39,7 +39,7 @@ export const UpdateProduct = () => {
     createdProduct,
     getaRedirect,
     formData,
-    success
+    success,
   } = values;
 
   const preload = (productId) => {
