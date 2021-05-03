@@ -27,10 +27,10 @@ export const StripeCheckout = ({
 
   const stripeBtn = () => {
     return isAuthenticated() ? (
-      <button className="btn btn-success">Pay With Stripe</button>
+      <button className="btn btn-success rounded">Pay With Stripe</button>
     ) : (
       <Link to="/signin">
-        <button className="btn btn-warning">Signin First!</button>
+        <button className="btn btn-warning rounded">Signin First!</button>
       </Link>
     );
   };

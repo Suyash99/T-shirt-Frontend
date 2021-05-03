@@ -18,7 +18,7 @@ const Cart = () => {
     return (
       <div>
         <h2>Your Products here</h2>
-        {products.map((product, index) => (
+        {products && products.map((product, index) => (
           <Card
             key={index}
             product={product}
