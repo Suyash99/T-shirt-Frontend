@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Menu from "./Menu";
 
 const Base = ({
@@ -20,7 +21,12 @@ const Base = ({
       <footer className="footer bg-dark mt-auto py-3">
         <div className="container-fluid bg-success text-white text-center py-3">
           <h4>If you got any questions, feel free to reach out</h4>
-          <button className="btn btn-warning btn-lg rounded">Contact us</button>
+          <Link
+            className="btn btn-warning btn-lg rounded"
+            to="/contact"
+          >
+            <span>Contact</span>
+          </Link>
         </div>
         <div className="container">
           <span className="text-muted">
