@@ -99,7 +99,7 @@ const Signin = () => {
               />
             </div>
             <div className="d-grid gap-2 col-6 mx-auto">
-              <button onClick={onSubmit} className="btn btn-success btn-block">
+              <button onClick={onSubmit} className="btn btn-success btn-block rounded">
                 Submit
               </button>
             </div>

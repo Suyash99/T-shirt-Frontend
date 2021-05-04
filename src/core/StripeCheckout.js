@@ -19,9 +19,10 @@ export const StripeCheckout = ({
 
   const getTotalPrice = () => {
     let amount = 0;
-    products && products.map((p) => {
-      amount = amount + p.price;
-    });
+    products &&
+      products.map((p) => {
+        amount = amount + p.price;
+      });
     return amount;
   };
 
