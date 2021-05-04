@@ -7,7 +7,7 @@ const Card = ({
   product,
   addtoCart = true,
   removefromCart = false,
-  setReload = f => f,
+  setReload = (f) => f,
   reload = undefined,
 }) => {
   const [redirect, setRedirect] = useState(false);
@@ -45,7 +45,7 @@ const Card = ({
         <button
           onClick={() => {
             removeItemCart(product._id);
-            setReload(!reload)
+            setReload(!reload);
           }}
           className="btn btn-block rounded btn-outline-danger mt-2 mb-2"
         >
