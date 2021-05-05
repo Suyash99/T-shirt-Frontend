@@ -16,7 +16,7 @@ export const Contact = () => {
       </div>
       <div className="container-fluid bg-white text-dark p-4">
         <p>
-          This is a project regarding my fullfillment of B.Tech(Electronics and
+          This is a project regarding the fullfillment of my B.Tech(Electronics and
           Communication) Degree. All the products and purchase stated here are
           all for my learning purpose only. Contact Me by clicking on the social
           media buttons below!
