@@ -1,0 +1,41 @@
+<div className="card text-white bg-dark border border-success ">
+      <div className="card-header lead">{cardTitle}</div>
+      <div className="card-body">
+        {getARedirect()}
+        <ImageRender product={product} />
+        <p className="lead bg-success font-weight-normal text-wrap">
+          {cardDescription}
+        </p>
+        <p className="btn btn-success rounded  btn-sm px-4">$ {cardPrice}</p>
+        <div className="row">
+          <div className="col-12">{showAddtoCart(addtoCart)}</div>
+          <div className="col-12">{showRemovetoCart(removefromCart)}</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div
+    className="card text-white bg-dark border border-success mb-3"
+    style= {{maxWidth: '540px'}}
+  >
+    <div className="row no-gutters">
+      <div className="col-md-4">
+        <ImageRender className="card-img" product={product} />
+      </div>
+      <div className="col-md-8">
+        <div className="card-body">
+          {getARedirect()}
+          <h5 className="card-header lead">{cardTitle}</h5>
+          <p className="lead bg-success font-weight-normal text-wrap">
+            {cardDescription}
+          </p>
+          <p className="btn btn- success rounded btn-sm"> $ {cardPrice}</p>
+          <div className="row">
+            <div className="col-12">{showAddtoCart(addtoCart)}</div>
+            <div className="col-12">{showRemovetoCart(removefromCart)}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
